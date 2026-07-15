@@ -1,8 +1,11 @@
 import axios from "axios";
-import { getBackendUrl } from "./backendUrl";
+
+const API_BASE_URL = "hhttps://mern-video-system.onrender.com";
+
+console.log("API BASE URL:", API_BASE_URL);
 
 const axiosInstance = axios.create({
-  baseURL: getBackendUrl(),
+  baseURL: API_BASE_URL,
 });
 
 export default axiosInstance;
