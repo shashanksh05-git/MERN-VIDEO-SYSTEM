@@ -1,15 +1,11 @@
 export const getBackendUrl = () => {
   const envUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-  if (typeof window !== "undefined") {
-    const hostname = window.location.hostname;
-    const protocol = window.location.protocol;
-
-    // If frontend is opened on LAN IP, use same IP for backend
-    if (hostname !== "localhost" && hostname !== "127.0.0.1") {
-      return `${protocol}//${hostname}:5000`;
-    }
+  if (envUrl) {
+    return envUrl.replace(/\/$/, "");
   }
 
-  return envUrl || "process.env.NEXT_PUBLIC_API_URL";
+  return "http://localhost:5000";
 };
+
+export default getBackendUrl;
