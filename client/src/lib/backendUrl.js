@@ -11,5 +11,5 @@ export const getBackendUrl = () => {
     }
   }
 
-  return envUrl || "http://localhost:5000";
+  return envUrl || "process.env.NEXT_PUBLIC_API_URL";
 };
